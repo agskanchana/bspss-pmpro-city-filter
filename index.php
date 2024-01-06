@@ -2,7 +2,7 @@
 /*
 Plugin Name: Bspss PMPPro city filterr
 Plugin URI: https://github.com/agskanchana/bspss-pmpro-city-filter
-Version: 1.0.3
+Version: 1.0.4
 Author: sameera
 Author URI: www.linkedin.com/in/sameera-kanchana-3b4660198
 
