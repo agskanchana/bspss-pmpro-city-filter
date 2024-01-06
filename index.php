@@ -2,7 +2,7 @@
 /*
 Plugin Name: Bspss PMPPro city filterr
 Plugin URI: https://github.com/agskanchana/bspss-pmpro-city-filter
-Version: 1.0.1
+Version: 1.0.2
 Author: sameera
 Author URI: www.linkedin.com/in/sameera-kanchana-3b4660198
 
@@ -33,7 +33,14 @@ foreach($users as $user){
 }
 
     ?>
-    <form role="search" method="post" class="pmpro_member_directory_search search-form" data-hs-cf-bound="true">
+    <style>
+form.pmpro_member_directory_search{
+	display: none !important;
+}
+
+    </style>
+
+    <form role="search" method="post" class="search-form" data-hs-cf-bound="true">
 		<label>
 			<span class="screen-reader-text">Search for:</span>
 			<input type="search" class="search-field" placeholder="Search Members" name="ps" value="" title="Search Members">
@@ -48,7 +55,15 @@ foreach($users as $user){
             if($user_cities):
                 $user_cities = array_unique($user_cities);
         foreach($user_cities as $user_city):?>
-            <option><?php echo $user_city;?></option>
+            <option
+            <?php
+             if( ! empty( $_REQUEST['town'] ) ) {
+                if($_REQUEST['town'] == $user_city){
+                    echo "selected";
+                }
+             }
+            ?>
+            ><?php echo $user_city;?></option>
             <?php
         endforeach;
     endif;
