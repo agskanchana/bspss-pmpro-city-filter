@@ -2,7 +2,7 @@
 /*
 Plugin Name: Bspss PMPPro city filterr
 Plugin URI: https://github.com/agskanchana/bspss-pmpro-city-filter
-Version: 1.0.2
+Version: 1.0.3
 Author: sameera
 Author URI: www.linkedin.com/in/sameera-kanchana-3b4660198
 
@@ -46,7 +46,7 @@ form.pmpro_member_directory_search{
 			<input type="search" class="search-field" placeholder="Search Members" name="ps" value="" title="Search Members">
 			<input type="hidden" name="limit" value="12">
 		</label>
-		<input type="submit" class="search-submit" value="Search Members">
+		<input type="submit" class="search-submit" value="Search Members" style="display: none;">
 	</form>
     <form>
         <select name="town">
