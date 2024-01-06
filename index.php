@@ -37,10 +37,15 @@ foreach($users as $user){
 form.pmpro_member_directory_search{
 	display: none !important;
 }
+form.bspss-search-form input{
+    border: 1px solid #bbb !important;
+    padding: 5px !important;
+    width: 100% !important;
+}
 
     </style>
 
-    <form role="search" method="post" class="search-form" data-hs-cf-bound="true">
+    <form role="search" method="post" class="search-form bspss-search-form" data-hs-cf-bound="true">
 		<label>
 			<span class="screen-reader-text">Search for:</span>
 			<input type="search" class="search-field" placeholder="Search Members" name="ps" value="" title="Search Members">
