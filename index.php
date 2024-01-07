@@ -2,7 +2,7 @@
 /*
 Plugin Name: Bspss PMPPro city filterr
 Plugin URI: https://github.com/agskanchana/bspss-pmpro-city-filter
-Version: 1.0.5
+Version: 1.0.6
 Author: sameera
 Author URI: www.linkedin.com/in/sameera-kanchana-3b4660198
 
@@ -47,8 +47,36 @@ form.bspss-search-form input{
     gap: 25px;
 }
 .bspss-filter-select select,
-.bspss-filter-select button{
+.bspss-filter-select input{
     padding: 5px;
+    border-radius: 5px;
+}
+.bspss-filter-select input,
+form.bspss-search-form input.search-submit{
+    padding: 5px;
+    background-color: #0C71C3;
+    color: #fff;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    border-radius: 5px !important;
+    /* font-weight: bold; */
+    border: none;
+    /* border: namespace; */
+}
+.pmpro_member_directory-item{
+    background-color: #ededed;
+    padding-top: 35px;
+    padding-bottom: 35px;
+}
+.pmpro_member_directory_avatar img{
+    border-radius: 50%;
+}
+.pmpro_member_directory_link a{
+    display: inline-block;
+    background-color: #0C71C3;
+    color: #fff !important;
+    padding: 5px 15px;
+    font-size: 16px !important;
 }
 /*
 .bsspss-filter-col form{
@@ -92,7 +120,8 @@ form.bspss-search-form input{
     endif;
         ?>
         </select>
-        <button type="submit">Filter</button>
+
+        <input type="submit" value="Filter">
     </form>
     </div>
     <?php
