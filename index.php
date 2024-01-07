@@ -40,20 +40,38 @@ form.pmpro_member_directory_search{
 form.bspss-search-form input{
     border: 1px solid #bbb !important;
     padding: 5px !important;
-    width: 100% !important;
+    /* width: 100% !important; */
 }
+.bsspss-filter-col{
+    display: flex;
+    gap: 25px;
+}
+.bspss-filter-select select,
+.bspss-filter-select button{
+    padding: 5px;
+}
+/*
+.bsspss-filter-col form{
+    flex: 0 0 50%;
+}*/
 
     </style>
 
-    <form role="search" method="post" class="search-form bspss-search-form" data-hs-cf-bound="true">
+
+    <?php
+
+
+    ?>
+    <div class="bsspss-filter-col">
+    <form  role="search" method="post" class="search-form bspss-search-form">
 		<label>
-			<span class="screen-reader-text">Search for:</span>
-			<input type="search" class="search-field" placeholder="Search Members" name="ps" value="" title="Search Members">
-			<input type="hidden" name="limit" value="12">
+			<span class="screen-reader-text"><?php _e('Search for:','pmpromd'); ?></span>
+			<input type="search" class="search-field" placeholder="<?php _e('Search Members','pmpromd'); ?>" name="ps" value="<?php if(!empty($_REQUEST['ps'])) echo stripslashes( esc_attr($_REQUEST['ps']) );?>" title="<?php _e('Search Members','pmpromd'); ?>" />
+			<!-- <input type="hidden" name="limit" value="<?php echo esc_attr($limit);?>" /> -->
 		</label>
-		<input type="submit" class="search-submit" value="Search Members" style="display: none;">
+		<input type="submit" class="search-submit" value="<?php _e('Search Members','pmpromd'); ?>">
 	</form>
-    <form>
+    <form class="bspss-filter-select">
         <select name="town">
             <option value="">Any</option>
             <?php
@@ -76,7 +94,7 @@ form.bspss-search-form input{
         </select>
         <button type="submit">Filter</button>
     </form>
-
+    </div>
     <?php
 
 
@@ -84,7 +102,7 @@ function my_pmpro_directory_widget_filter_sql_parts( $sql_parts, $levels, $s, $p
 	global $wpdb;
 
 	// Filter results based on province if a province is selected.
-	if ( ! empty( $_REQUEST['town'] ) ) {
+	if ( ! empty( $_REQUEST['town'] )  && empty($_REQUEST['ps'])) {
 		$sql_parts['JOIN'] .= " LEFT JOIN $wpdb->usermeta um_pharmacy_town_city ON um_pharmacy_town_city.meta_key = 'pharmacy_town_city' AND u.ID = um_pharmacy_town_city.user_id ";
 		$sql_parts['WHERE'] .= " AND um_pharmacy_town_city.meta_value in ('" . $_REQUEST['town']. "') ";
 	}
