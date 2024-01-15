@@ -2,7 +2,7 @@
 /*
 Plugin Name: Bspss PMPPro city filterr
 Plugin URI: https://github.com/agskanchana/bspss-pmpro-city-filter
-Version: 1.0.8
+Version: 1.0.9
 Author: sameera
 Author URI: www.linkedin.com/in/sameera-kanchana-3b4660198
 
@@ -100,7 +100,7 @@ form.bspss-search-form input.search-submit{
 		<input type="submit" class="search-submit" value="<?php _e('Search Members','pmpromd'); ?>">
 	</form>
     <form class="bspss-filter-select">
-        <select name="town">
+       Town   <select name="town">
             <option value="">Any</option>
             <?php
             if($user_cities):
@@ -124,7 +124,7 @@ form.bspss-search-form input.search-submit{
         <input type="submit" value="Filter">
     </form>
     <form class="status-form bspss-filter-select">
-          <select name="pharmacy_trained">
+    Trained  <select name="pharmacy_trained">
             <option>Yes</option>
             <option value="">No</option>
           </select>
