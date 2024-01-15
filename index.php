@@ -123,6 +123,13 @@ form.bspss-search-form input.search-submit{
 
         <input type="submit" value="Filter">
     </form>
+    <form class="status-form">
+          <select name="pharmacy_trained">
+            <option>Yes</option>
+            <option value="">No</option>
+          </select>
+         <input type="submit" value="Filter">
+    </form>
     </div>
     <?php
 
@@ -135,6 +142,11 @@ function my_pmpro_directory_widget_filter_sql_parts( $sql_parts, $levels, $s, $p
 		$sql_parts['JOIN'] .= " LEFT JOIN $wpdb->usermeta um_pharmacy_town_city ON um_pharmacy_town_city.meta_key = 'pharmacy_town_city' AND u.ID = um_pharmacy_town_city.user_id ";
 		$sql_parts['WHERE'] .= " AND um_pharmacy_town_city.meta_value in ('" . $_REQUEST['town']. "') ";
 	}
+
+    if(!empty($_REQUEST['pharmacy_trained']) && empty($_REQUEST['ps']) ){
+        $sql_parts['JOIN'] .= " LEFT JOIN $wpdb->usermeta um_pharmacy_trained ON um_pharmacy_trained.meta_key = 'pharmacy_trained' AND u.ID = um_pharmacy_trained.user_id ";
+		$sql_parts['WHERE'] .= " AND um_pharmacy_trained.meta_value in ('" . $_REQUEST['pharmacy_trained']. "') ";
+    }
 
 
 
