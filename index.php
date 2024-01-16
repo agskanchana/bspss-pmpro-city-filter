@@ -78,6 +78,11 @@ form.bspss-search-form input.search-submit{
     padding: 5px 15px;
     font-size: 16px !important;
 }
+@media screen and (max-width: 1030px){
+    .bsspss-filter-col{
+        flex-direction: column;
+    }
+}
 /*
 .bsspss-filter-col form{
     flex: 0 0 50%;
